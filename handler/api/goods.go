@@ -72,7 +72,7 @@ func (h *GoodsHandler) CreateGoods(w http.ResponseWriter, r *http.Request) {
 
 	photoUrl := r.FormValue("photo_url")
 	if photoUrl == "" {
-		photoUrl = "http://localhost:8080/image/" + fileHandler.Filename
+		photoUrl = "http://localhost:8080/images/" + fileHandler.Filename
 	}
 
 	// fmt.Println(photoUrl, fileHandler.Filename)
@@ -126,7 +126,7 @@ func (h *GoodsHandler) UpdateGoods(w http.ResponseWriter, r *http.Request) {
 
 	photoUrl := r.FormValue("photo_url")
 	if photoUrl == "" {
-		photoUrl = "http://localhost:8080/image/" + fileHandler.Filename
+		photoUrl = "http://localhost:8080/images/" + fileHandler.Filename
 	}
 
 	fmt.Println(photoUrl, fileHandler.Filename)

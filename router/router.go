@@ -2,6 +2,7 @@ package router
 
 import (
 	"log"
+	"net/http"
 
 	"github.com/go-chi/chi/v5"
 	_ "github.com/lib/pq"
@@ -45,6 +46,8 @@ func RouterAPI() *chi.Mux {
 			})
 		})
 	})
+	fs := http.FileServer(http.Dir("images"))
+	router.Handle("/images/*", http.StripPrefix("/images/", fs))
 	// router.Route("/cms", func(r chi.Router) {
 	// 	r.Use(middleware.Logger)
 	// 	r.Get("/login", func(w http.ResponseWriter, r *http.Request) {
